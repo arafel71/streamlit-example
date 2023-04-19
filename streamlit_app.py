@@ -20,7 +20,13 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
-    st.write(bytes_data)
+    """ st.write(bytes_data) """
+    st.image(bytes_data, caption='Image uploaded') 
+
+
+
+
+   
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
