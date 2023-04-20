@@ -3,6 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import slideio
 
 """
 # Welcome to Streamlit!
@@ -20,8 +21,13 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
+
+
+    slide = slideio.open_slidei(bytes_data,driver_id="SVS")
+    scene = slide.get_scene(0)
+    block = scene.read_block()
     """ st.write(bytes_data) """
-    st.image(bytes_data, caption='Image uploaded') 
+    """ st.image(bytes_data, caption='Image uploaded')   """
 
 
 
