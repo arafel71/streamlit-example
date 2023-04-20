@@ -23,7 +23,11 @@ if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
 
 
-    slide = sio.open_slidei(bytes_data,driver_id="SVS")
+    with open(os.path.join("tempDir",uploaded_file.name),"wb") as f:
+         f.write(uploaded_file.getbuffer())
+
+    slide = sio.open_slidei(os.path.join("tempDir",uploaded_file.name),driver_id="SVS")
+    """ slide = sio.open_slidei(bytes_data,driver_id="SVS")""" 
     scene = slide.get_scene(0)
     block = scene.read_block()
     """ st.write(bytes_data) """
