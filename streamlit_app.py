@@ -4,6 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 import slideio as sio
+import os
 
 """
 # Welcome to Streamlit!
@@ -26,7 +27,8 @@ if uploaded_file is not None:
     with open(os.path.join("tempDir",uploaded_file.name),"wb") as f:
          f.write(uploaded_file.getbuffer())
 
-    slide = sio.open_slidei(os.path.join("tempDir",uploaded_file.name),driver_id="SVS")
+    slide = sio.open_slidei(file_path=os.path.join("tempDir",uploaded_file.name),driver_id="SVS")
+ 
     """ slide = sio.open_slidei(bytes_data,driver_id="SVS")""" 
     scene = slide.get_scene(0)
     block = scene.read_block()
