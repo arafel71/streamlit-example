@@ -3,7 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import slideio
+import slideio as sio
 
 """
 # Welcome to Streamlit!
@@ -23,7 +23,7 @@ if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
 
 
-    slide = slideio.open_slidei(bytes_data,driver_id="SVS")
+    slide = sio.open_slidei(bytes_data,driver_id="SVS")
     scene = slide.get_scene(0)
     block = scene.read_block()
     """ st.write(bytes_data) """
