@@ -9,6 +9,7 @@ import tempfile
 import io
 
 """ import pyvips """
+from PIL import PIL
 from PIL import Image
 
 
