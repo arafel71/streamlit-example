@@ -49,8 +49,6 @@ if uploaded_file is not None:
       f.write(uploaded_file.getbuffer())
         
 
-    """ slide = slideio.open_slidei(file_path=os.path.join(pathtempDir,uploaded_file.name),driver_id="SVS") """
-    """ slide = slideio.open_slide(file_path=os.path.join(pathtempDir,uploaded_file.name),driver_id="SVS") """
     slide = slideio.open_slide(os.path.join(pathtempDir,uploaded_file.name),"SVS")
    
     num_scenes = slide.num_scenes
@@ -59,17 +57,11 @@ if uploaded_file is not None:
 
     st.write(num_scenes, scene.name, scene.rect, scene.num_channels)
 
-    """print(num_scenes, scene.name, scene.rect, scene.num_channels)"""
 
+    """ A code snippet bellow. retrieves the whole image and scales it to 500 pixels width picture """
+    myimage = scene.read_block(size=(500,0))
 
-    """ myImage = Image.open(io.BytesIO(bytes_data)) """
-    """ mySlideWrap = openslide.ImageSlide(myImage)  """
-
-
-    """print(mySlideWrap.level_count)"""
-
-
-    """ st.image(scene, caption='Image uploaded') """
+    st.image(myimage, caption='Image uploaded')
 
 
    
