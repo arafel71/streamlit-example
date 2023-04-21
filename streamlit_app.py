@@ -19,8 +19,6 @@ Image.MAX_IMAGE_PIXELS = 1000000000
 directory = os.getcwd()
 
 
-
-pathOpenslide = directory + 
 pathOpenslide = os.path.join(directory + r'openslide-win64-20230414\bin')
 
 if hasattr(os, 'add_dll_directory'):
