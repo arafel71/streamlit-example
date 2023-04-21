@@ -9,11 +9,11 @@ import tempfile
 import io
 
 """ import pyvips """
-from PIL import PIL
-from PIL import Image
+
+from PIL import Image Image.MAX_IMAGE_PIXELS = 1000000000 
 
 
-PIL.Image.MAX_IMAGE_PIXELS = 933120000
+""" PIL.Image.MAX_IMAGE_PIXELS = 933120000 """
 
 """
 # Welcome to Streamlit!
