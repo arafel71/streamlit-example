@@ -53,8 +53,13 @@ if uploaded_file is not None:
     """ slide = slideio.open_slide(file_path=os.path.join(pathtempDir,uploaded_file.name),driver_id="SVS") """
     slide = slideio.open_slide(os.path.join(pathtempDir,uploaded_file.name),"SVS")
    
+    num_scenes = slide.num_scenes
+    scene = slide.get_scene(0)   
 
-    scene = slide.get_scene(0)    
+
+    print(num_scenes, scene.name, scene.rect, scene.num_channels)
+
+     
     """ myImage = Image.open(io.BytesIO(bytes_data)) """
     """ mySlideWrap = openslide.ImageSlide(myImage)  """
 
@@ -62,7 +67,7 @@ if uploaded_file is not None:
     """print(mySlideWrap.level_count)"""
 
 
-    st.image(scene, caption='Image uploaded') 
+    """ st.image(scene, caption='Image uploaded') """
 
 
    
