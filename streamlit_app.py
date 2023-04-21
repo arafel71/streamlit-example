@@ -21,7 +21,7 @@ Image.MAX_IMAGE_PIXELS = 1000000000
 directory = os.getcwd()
 
 
-pathtempDir = os.path.join(directory + r'tempDir')
+pathtempDir = os.path.join(directory + r'/tempDir/')
 
 # solve dll hell
 """os.environ['PATH'] = pathOpenslide + ";" + os.environ['PATH']"""
