@@ -1,5 +1,3 @@
-pyvips
-slideio
 altair
 pandas
 streamlit

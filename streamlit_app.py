@@ -7,7 +7,8 @@ import streamlit as st
 import os
 import tempfile
 
-import pyvips
+""" import pyvips """
+from PIL import Image
 
 
 """
@@ -27,9 +28,9 @@ if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
 
-
-
-    image = pyvips.Image.new_from_buffer(bytes_data)
+    myImage = Image.open(bytes_data)
+    """ myImage = Image.open(io.BytesIO(buffer)) """
+    """ image = pyvips.Image.new_from_buffer(bytes_data) """ 
 
     """with open(os.path.join("tempDir",uploaded_file.name),"wb") as f:   """
     """     f.write(uploaded_file.getbuffer())                            """
@@ -44,7 +45,7 @@ if uploaded_file is not None:
     """ st.write(bytes_data) """
     """ st.image(bytes_data, caption='Image uploaded')   """
 
-    st.image(image, caption='Image uploaded')
+    st.image(myImage, caption='Image uploaded')
 
 
    
