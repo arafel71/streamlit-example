@@ -8,7 +8,7 @@ import os
 import tempfile
 import io
 
-from openslide-python import openslide 
+import openslide
 """ import pyvips """
 
 from PIL import Image 
