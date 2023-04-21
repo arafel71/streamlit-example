@@ -49,7 +49,8 @@ if uploaded_file is not None:
       f.write(uploaded_file.getbuffer())
         
 
-    slide = slideio.open_slidei(file_path=os.path.join(pathtempDir,uploaded_file.name),driver_id="SVS")
+    """ slide = slideio.open_slidei(file_path=os.path.join(pathtempDir,uploaded_file.name),driver_id="SVS") """
+    slide = slideio.open_slide(file_path=os.path.join(pathtempDir,uploaded_file.name),driver_id="SVS")
     scene = slide.get_scene(0)    
     """ myImage = Image.open(io.BytesIO(bytes_data)) """
     """ mySlideWrap = openslide.ImageSlide(myImage)  """
