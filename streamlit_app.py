@@ -57,9 +57,11 @@ if uploaded_file is not None:
     scene = slide.get_scene(0)   
 
 
-    print(num_scenes, scene.name, scene.rect, scene.num_channels)
+    st.write(num_scenes, scene.name, scene.rect, scene.num_channels)
 
-     
+    """print(num_scenes, scene.name, scene.rect, scene.num_channels)"""
+
+
     """ myImage = Image.open(io.BytesIO(bytes_data)) """
     """ mySlideWrap = openslide.ImageSlide(myImage)  """
 
