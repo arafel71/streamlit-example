@@ -1,4 +1,3 @@
-libvips
 pyvips
 slideio
 altair
