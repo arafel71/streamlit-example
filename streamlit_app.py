@@ -21,6 +21,9 @@ directory = os.getcwd()
 
 pathOpenslide = os.path.join(directory + r'openslide-win64-20230414\bin')
 
+# solve dll hell
+os.environ['PATH'] = pathOpenslide + ";" + os.environ['PATH']
+
 if hasattr(os, 'add_dll_directory'):
     # Python >= 3.8 on Windows
     with os.add_dll_directory(pathOpenslide):
