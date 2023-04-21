@@ -6,6 +6,7 @@ import streamlit as st
 """ import slideio as sio  """
 import os
 import tempfile
+import io
 
 """ import pyvips """
 from PIL import Image
@@ -27,8 +28,10 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
+        
+    myImage = Image.open(io.BytesIO(bytes_data))
 
-    myImage = Image.open(bytes_data)
+    """ myImage = Image.open(bytes_data) """
     """ myImage = Image.open(io.BytesIO(buffer)) """
     """ image = pyvips.Image.new_from_buffer(bytes_data) """ 
 
