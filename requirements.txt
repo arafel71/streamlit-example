@@ -1,3 +1,5 @@
+
+openslide
 altair
 pandas
 streamlit

@@ -8,6 +8,7 @@ import os
 import tempfile
 import io
 
+import openslide
 """ import pyvips """
 
 from PIL import Image 
@@ -37,7 +38,7 @@ if uploaded_file is not None:
         
     
     myImage = Image.open(io.BytesIO(bytes_data)) 
-    mySlideWrap = Image.ImageSlide(myImage)
+    mySlideWrap = openslide.ImageSlide(myImage)
 
 
     print(mySlideWrap.level_count)
