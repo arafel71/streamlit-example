@@ -43,7 +43,7 @@ if uploaded_file is not None:
     print(mySlideWrap.level_count)
 
 
-    """ st.image(myImage, caption='Image uploaded')
+    """ st.image(myImage, caption='Image uploaded') """
 
 
    
