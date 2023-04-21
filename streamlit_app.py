@@ -3,8 +3,12 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-import slideio as sio
+ """ import slideio as sio  """
 import os
+import tempfile
+
+import pyvips
+
 
 """
 # Welcome to Streamlit!
@@ -24,18 +28,23 @@ if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
 
 
-    with open(os.path.join("tempDir",uploaded_file.name),"wb") as f:
-         f.write(uploaded_file.getbuffer())
 
-    slide = sio.open_slidei(file_path=os.path.join("tempDir",uploaded_file.name),driver_id="SVS")
+    image = pyvips.Image.new_from_buffer(bytes_data)
+
+    """with open(os.path.join("tempDir",uploaded_file.name),"wb") as f:   """
+    """     f.write(uploaded_file.getbuffer())                            """
+
+    """ st.success("Saved File")     """
+
+    """ slide = sio.open_slidei(file_path=os.path.join("tempDir",uploaded_file.name),driver_id="SVS")  """
  
     """ slide = sio.open_slidei(bytes_data,driver_id="SVS")""" 
-    scene = slide.get_scene(0)
-    block = scene.read_block()
+    """ scene = slide.get_scene(0)   """
+    """ block = scene.read_block()   """
     """ st.write(bytes_data) """
     """ st.image(bytes_data, caption='Image uploaded')   """
 
-
+    st.image(image, caption='Image uploaded')
 
 
    

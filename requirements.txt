@@ -1,4 +1,6 @@
+pyvips
+slideio
 altair
 pandas
 streamlit
-slideio
+
