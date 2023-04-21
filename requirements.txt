@@ -1,4 +1,4 @@
-openslide-python
+slideio
 altair
 pandas
 streamlit

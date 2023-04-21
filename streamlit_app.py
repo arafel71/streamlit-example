@@ -8,6 +8,8 @@ import os
 import tempfile
 import io
 
+import slideio
+
 
 """ import pyvips """
 
@@ -19,17 +21,12 @@ Image.MAX_IMAGE_PIXELS = 1000000000
 directory = os.getcwd()
 
 
-pathOpenslide = os.path.join(directory + r'openslide-win64-20230414\bin')
+pathtempDir = os.path.join(directory + r'tempDir')
 
 # solve dll hell
-os.environ['PATH'] = pathOpenslide + ";" + os.environ['PATH']
+"""os.environ['PATH'] = pathOpenslide + ";" + os.environ['PATH']"""
 
-if hasattr(os, 'add_dll_directory'):
-    # Python >= 3.8 on Windows
-    with os.add_dll_directory(pathOpenslide):
-        import openslide
-else:
-    import openslide
+
 
 """
 # Welcome to Streamlit!
@@ -47,16 +44,21 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
+
+    with open(os.path.join(pathtempDir,uploaded_file.name),"wb") as f:
+      f.write(uploaded_file.getbuffer())
         
-    
-    myImage = Image.open(io.BytesIO(bytes_data)) 
-    mySlideWrap = openslide.ImageSlide(myImage)
+
+    slide = slideio.open_slidei(file_path=os.path.join(pathtempDir,uploaded_file.name),driver_id="SVS")
+    scene = slide.get_scene(0)    
+    """ myImage = Image.open(io.BytesIO(bytes_data)) """
+    """ mySlideWrap = openslide.ImageSlide(myImage)  """
 
 
-    print(mySlideWrap.level_count)
+    """print(mySlideWrap.level_count)"""
 
 
-    """ st.image(myImage, caption='Image uploaded') """
+    st.image(scene, caption='Image uploaded') 
 
 
    
