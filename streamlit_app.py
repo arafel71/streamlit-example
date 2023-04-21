@@ -8,7 +8,7 @@ import os
 import tempfile
 import io
 
-import openslide
+
 """ import pyvips """
 
 from PIL import Image 
@@ -16,8 +16,19 @@ Image.MAX_IMAGE_PIXELS = 1000000000
 
 
 
+directory = os.getcwd()
 
 
+
+pathOpenslide = directory + 
+pathOpenslide = os.path.join(directory + r'openslide-win64-20230414\bin')
+
+if hasattr(os, 'add_dll_directory'):
+    # Python >= 3.8 on Windows
+    with os.add_dll_directory(pathOpenslide):
+        import openslide
+else:
+    import openslide
 
 """
 # Welcome to Streamlit!
