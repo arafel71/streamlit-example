@@ -13,6 +13,8 @@ import io
 from PIL import Image 
 Image.MAX_IMAGE_PIXELS = 1000000000 
 
+from flask import Flask, abort, make_response, render_template, url_for
+
 
 
 
@@ -33,11 +35,15 @@ if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
         
-    myImage = Image.open(io.BytesIO(bytes_data))
+    
+    myImage = Image.open(io.BytesIO(bytes_data)) 
+    mySlideWrap = Image.ImageSlide(myImage)
 
 
+    print(mySlideWrap.level_count)
 
-    st.image(myImage, caption='Image uploaded')
+
+    """ st.image(myImage, caption='Image uploaded')
 
 
    
