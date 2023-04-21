@@ -12,6 +12,8 @@ import io
 from PIL import Image
 
 
+PIL.Image.MAX_IMAGE_PIXELS = 933120000
+
 """
 # Welcome to Streamlit!
 
