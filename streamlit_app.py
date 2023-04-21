@@ -10,7 +10,8 @@ import io
 
 """ import pyvips """
 
-from PIL import Image Image.MAX_IMAGE_PIXELS = 1000000000 
+from PIL import Image 
+Image.MAX_IMAGE_PIXELS = 1000000000 
 
 
 """ PIL.Image.MAX_IMAGE_PIXELS = 933120000 """
